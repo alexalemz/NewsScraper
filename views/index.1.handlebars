@@ -1,0 +1,16 @@
+<style>
+  .item {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>NPR NewsScraper</h1>
+
+{{#each articles}}
+<div class="item">
+  <a href="{{link}}">
+    <h4>{{title}}</h4>
+  </a>
+  <p>{{summary}}</p>
+</div>
+{{/each}}

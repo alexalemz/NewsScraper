@@ -1,0 +1,19 @@
+<h2 class="display-2 text-center">NPR News Scraper</h2>
+
+<button id="scrape-button" class="mb-2 btn">Scrape for new articles</button>
+
+{{#each articles}}
+<div class="card">
+  <div class="card-header">
+    <a href="{{link}}">
+      <h5 class="card-title">{{title}}</h5>
+    </a>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{summary}}</p>
+    <a href="articles/{{_id}}" class="btn btn-primary">Comments</a>
+  </div>
+</div>
+{{/each}}
+
+<script src="/js/index.js"></script>
