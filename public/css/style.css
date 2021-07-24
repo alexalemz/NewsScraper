@@ -1,0 +1,15 @@
+#scrape-button {
+  width: 100%;
+  padding: 11px;
+  font-size: 20px;
+  color: #555;
+}
+
+#scrape-button:hover {
+  background-color: #ddd;
+}
+
+.card {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

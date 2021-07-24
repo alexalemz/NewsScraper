@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -26,7 +27,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI //|| "mongodb://localhost/mongoHeadlines";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
@@ -35,7 +36,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Route for the homepage
 app.get("/", function(req, res) {
-  db.Article.find({}).sort({date: -1})
+  db.Article.find({}).sort({date: -1}).lean()
     .then(function(dbArticle) {
       res.render("index", {
         articles: dbArticle
@@ -114,7 +115,7 @@ app.get("/articles", function(req, res) {
 
 // Route for grabbing a specific Article by id, populated with its comments.
 app.get("/articles/:id", function(req, res) {
-  db.Article.findById(req.params.id).populate("comments")
+  db.Article.findById(req.params.id).populate("comments").lean()
     .then(function(dbArticle) {
       // res.json(dbArticle);
       res.render("article", dbArticle)

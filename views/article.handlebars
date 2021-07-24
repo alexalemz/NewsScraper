@@ -19,7 +19,20 @@
   .comment:hover .delete-comment {
     visibility: visible;
   }
+
+  #comment-body {
+    width: 500px;
+    height: 100px;
+  }
+
+  #comments-display {
+    margin-top: 20px;
+  }
 </style>
+
+<div style="margin: 40px 0 20px">
+  <a href="/">Back to the main page...</a>
+</div>
 
 <div class="card">
   <div class="card-header">
@@ -37,7 +50,7 @@
   <h5>Comments</h5>
   <form id="add-comment" data-url="/articles/{{_id}}">
     <textarea id="comment-body" placeholder="Add a comment..."></textarea> <br>
-    <input type="submit">
+    <input type="submit" value="Submit" class="btn">
   </form>
 </div>
 
